@@ -11,12 +11,12 @@ const ErrorPage = () => {
       <div className="flex flex-col items-center justify-center px-5 mx-auto">
         <Lottie className="h-[400px]" animationData={error404} loop={true} />
         <div className="text-center">
-          <p className="text-lg font-semibold md:text-xl text-red-800 mb-4">
+          <p className="text-lg font-semibold md:text-xl text-red-600 mb-4">
             {error?.message}
           </p>
           <Link
             to="/"
-            className="btn btn-xs border-0 rounded-md transition-colors duration-200 bg-blue-500 hover:bg-blue-600 px-12 text-white"
+            className="btn btn-outline btn-sm btn-primary px-12 text-white"
           >
             Back to homepage
           </Link>
