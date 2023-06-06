@@ -122,7 +122,7 @@ const Login = () => {
       </Helmet>
       <section className="min-h-[calc(100vh-65px)] pt-16">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+          <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
             {/* Error message */}
             {err ? (
               <div className="bg-white alert alert-error">
@@ -177,6 +177,13 @@ const Login = () => {
                   </label>
                   <div className="bg-gray-50 flex border border-gray-300 rounded-lg">
                     <input
+                      {...register("password", {
+                        pattern: {
+                          value: /(?=.*[A-Z])(?=.*[!@#$%^&*])(.{6,})/,
+                          message:
+                            "Password should be 6 characters long, contain one special character, and have at least one capital letter.",
+                        },
+                      })}
                       type={isVisible ? "text" : "password"}
                       name="password"
                       id="password"
@@ -196,6 +203,11 @@ const Login = () => {
                       )}
                     </button>
                   </div>
+                  {errors.password && (
+                    <p className="text-red-600" role="alert">
+                      {errors.password.message}
+                    </p>
+                  )}
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
