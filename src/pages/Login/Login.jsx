@@ -80,62 +80,44 @@ const Login = () => {
         const user = result.user;
         console.log(user);
 
-        // const saveUser = { name: user.displayName, email: user.email };
-        // fetch("https://bistro-boss-server-swart.vercel.app/users", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(saveUser),
-        // })
-        //   .then((res) => res.json())
-        //   .then((data) => {
-        //     if (data) {
-        //       setNLoading(false);
-        //       const Toast = Swal.mixin({
-        //         toast: true,
-        //         position: "top-end",
-        //         showConfirmButton: false,
-        //         timer: 3000,
-        //         timerProgressBar: true,
-        //         didOpen: (toast) => {
-        //           toast.addEventListener("mouseenter", Swal.stopTimer);
-        //           toast.addEventListener("mouseleave", Swal.resumeTimer);
-        //         },
-        //       });
-
-        //       Toast.fire({
-        //         icon: "success",
-        //         title: "Login successful!",
-        //       });
-        //       navigate(from, { replace: true });
-        //     }
-        //   })
-        //   .catch((error) => {
-        //     setLoading(false);
-        //     setNLoading(false);
-        //     console.log(error);
-        //     setError(error);
-        //   });
-
-        setNLoading(false);
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
+        const saveUser = { name: user.displayName, email: user.email };
+        fetch(`${import.meta.env.VITE_SERVER_API}users/${user?.email}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
           },
-        });
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.matchedCount === 1 || data.upsertedCount === 1) {
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener("mouseenter", Swal.stopTimer);
+                  toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+              });
 
-        Toast.fire({
-          icon: "success",
-          title: "Login successful!",
-        });
-        navigate(from, { replace: true });
+              Toast.fire({
+                icon: "success",
+                title: "Login successful!",
+              });
+              setLoading(false);
+              setNLoading(false);
+              navigate(from, { replace: true });
+            }
+          })
+          .catch((error) => {
+            setLoading(false);
+            setNLoading(false);
+            console.log(error);
+            setError(error);
+          });
       })
       .catch((error) => {
         setLoading(false);

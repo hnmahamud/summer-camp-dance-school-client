@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signInWithRedirect,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -64,11 +65,11 @@ const AuthProviders = ({ children }) => {
       setFullLoading(false);
       // if (createUser && currentUser?.email) {
       //   axios
-      //     .post("https://bistro-boss-server-swart.vercel.app/jwt", {
+      //     .post(`${import.meta.env.VITE_SERVER_API}jwt`, {
       //       email: currentUser.email,
       //     })
       //     .then((response) => {
-      //       localStorage.setItem("bistro-access-token", response.data.token);
+      //       localStorage.setItem("summerCamp-access-token", response.data.token);
       //       setLoading(false);
       //       setFullLoading(false);
       //     })
@@ -76,7 +77,7 @@ const AuthProviders = ({ children }) => {
       //       console.log(error);
       //     });
       // } else {
-      //   localStorage.removeItem("bistro-access-token");
+      //   localStorage.removeItem("summerCamp-access-token");
       //   setLoading(false);
       //   setFullLoading(false);
       // }
