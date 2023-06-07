@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
+import { FaAddressCard, FaHome, FaSignInAlt, FaUsers } from "react-icons/fa";
 
 const Dashboard = () => {
   // Context API
@@ -10,7 +11,7 @@ const Dashboard = () => {
     return <LoadingSpinner fullScreen={true}></LoadingSpinner>;
   }
 
-  const aa = "";
+  const aa = "instructor";
 
   return (
     <div className="drawer lg:drawer-open">
@@ -44,14 +45,14 @@ const Dashboard = () => {
         </div>
 
         <div>
-          <h3>Drawer</h3>
+          <Outlet></Outlet>
         </div>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col ml-16">
             <div className="avatar">
               <div className="w-20 rounded-full">
                 <img src={user?.photoURL} />
@@ -60,17 +61,30 @@ const Dashboard = () => {
             <h3 className="text-xl font-bold text-gray-600 mt-2">
               {user?.displayName}
             </h3>
+            <h5 className="text-sm text-gray-600 mt-2">{user?.email}</h5>
           </div>
 
           {/* Divider */}
           <div className="divider"></div>
 
           {/* Dynamic */}
-          <div className="flex flex-col space-y-6 ml-16">
+          <div className="text-base flex flex-col space-y-6 ml-16">
             {aa === "instructor" ? (
               <>
-                <NavLink>Add a Class</NavLink>
-                <NavLink>My Classes</NavLink>
+                <NavLink
+                  to="/dashboard/add-class"
+                  className="flex gap-2 items-center"
+                >
+                  <FaAddressCard></FaAddressCard>
+                  <span>Add a Class</span>
+                </NavLink>
+                <NavLink
+                  to="/dashboard/my-class"
+                  className="flex gap-2 items-center"
+                >
+                  <FaUsers></FaUsers>
+                  <span>My Classes</span>
+                </NavLink>
               </>
             ) : aa === "admin" ? (
               <>
@@ -90,9 +104,15 @@ const Dashboard = () => {
           <div className="divider"></div>
 
           {/* Common */}
-          <div className="flex flex-col space-y-6 ml-16">
-            <NavLink to="/">Home</NavLink>
-            <NavLink>Logout</NavLink>
+          <div className="text-base flex flex-col space-y-6 ml-16">
+            <NavLink to="/" className="flex gap-2 items-center">
+              <FaHome></FaHome>
+              <span>Home</span>
+            </NavLink>
+            <NavLink className="flex gap-2 items-center">
+              <FaSignInAlt></FaSignInAlt>
+              <span>Logout</span>
+            </NavLink>
           </div>
         </ul>
       </div>

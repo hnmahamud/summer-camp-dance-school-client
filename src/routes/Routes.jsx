@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Dashboard from "../layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import AddClass from "../pages/Dashboard/AddClass/AddClass";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "add-class",
+        element: <AddClass></AddClass>,
+      },
+    ],
   },
 ]);
 
