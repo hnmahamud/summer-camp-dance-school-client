@@ -18,7 +18,6 @@ const Login = () => {
 
   // Use Location for redirect target page or home page
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const from = location?.state || "/";
 
@@ -82,7 +81,7 @@ const Login = () => {
         console.log(user);
 
         const saveUser = { name: user.displayName, email: user.email };
-        fetch(`${import.meta.env.VITE_SERVER_API}users/${user?.email}`, {
+        fetch(`${import.meta.env.VITE_SERVER_API}/users/${user?.email}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

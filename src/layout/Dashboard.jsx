@@ -73,14 +73,22 @@ const Dashboard = () => {
               <>
                 <NavLink
                   to="/dashboard/add-class"
-                  className="flex gap-2 items-center"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-700 flex items-center gap-2"
+                      : "flex items-center gap-2"
+                  }
                 >
                   <FaAddressCard></FaAddressCard>
                   <span>Add a Class</span>
                 </NavLink>
                 <NavLink
                   to="/dashboard/my-class"
-                  className="flex gap-2 items-center"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-700 flex items-center gap-2"
+                      : "flex items-center gap-2"
+                  }
                 >
                   <FaUsers></FaUsers>
                   <span>My Classes</span>
@@ -105,11 +113,18 @@ const Dashboard = () => {
 
           {/* Common */}
           <div className="text-base flex flex-col space-y-6 ml-16">
-            <NavLink to="/" className="flex gap-2 items-center">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-700 flex items-center gap-2"
+                  : "flex items-center gap-2"
+              }
+            >
               <FaHome></FaHome>
               <span>Home</span>
             </NavLink>
-            <NavLink className="flex gap-2 items-center">
+            <NavLink className="flex items-center gap-2">
               <FaSignInAlt></FaSignInAlt>
               <span>Logout</span>
             </NavLink>

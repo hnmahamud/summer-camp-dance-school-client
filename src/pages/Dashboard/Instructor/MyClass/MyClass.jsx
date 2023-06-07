@@ -1,64 +1,89 @@
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
+import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
+import { Link } from "react-router-dom";
+
 const MyClass = () => {
+  const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+  const { data: classes = [], isLoading } = useQuery({
+    queryKey: ["classes", user?.email],
+    queryFn: async () => {
+      const response = await axiosSecure.get(`/classes/${user?.email}`);
+      return response.data;
+    },
+  });
+
+  if (isLoading) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
+
   return (
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" className="px-6 py-3">
             Name
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" className="px-6 py-3">
             Available Seats
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" className="px-6 py-3">
             Price
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" className="px-6 py-3">
             Status
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" className="px-6 py-3">
             Total Enrolled
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" className="px-6 py-3">
             Feedback
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" className="px-6 py-3">
             Action
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-          <th
-            scope="row"
-            class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-          >
-            <img
-              class="w-10 h-10 rounded-full"
-              src="/docs/images/people/profile-picture-1.jpg"
-            />
-            <div class="pl-3">
-              <div class="text-base font-semibold">Neil Sims</div>
-            </div>
-          </th>
-          <td class="px-6 py-4">React Developer</td>
-          <td class="px-6 py-4">
-            <div class="flex items-center">
-              <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>
-              Online
-            </div>
-          </td>
-          <td class="px-6 py-4">React Developer</td>
-          <td class="px-6 py-4">React Developer</td>
-          <td class="px-6 py-4">React Developer</td>
-          <td class="px-6 py-4">
-            <a
-              href="#"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-            >
-              Edit user
-            </a>
-          </td>
-        </tr>
+        <>
+          {classes.length > 0 &&
+            classes.map((cls) => (
+              <tr
+                key={cls._id}
+                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+              >
+                <th
+                  scope="row"
+                  className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  <img
+                    className="w-10 h-10 rounded-full"
+                    src={cls?.classImage}
+                  />
+                  <div className="pl-3">
+                    <div className="text-base font-semibold">
+                      {cls?.className}
+                    </div>
+                  </div>
+                </th>
+                <td className="px-6 py-4">{cls?.availableSeats}</td>
+                <td className="px-6 py-4">{cls?.price}</td>
+                <td className="px-6 py-4">{cls?.status}</td>
+                <td className="px-6 py-4">0</td>
+                <td className="px-6 py-4">null</td>
+                <td className="px-6 py-4">
+                  <Link
+                    to={`/dashboard/update-class/${cls._id}`}
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    Update Class
+                  </Link>
+                </td>
+              </tr>
+            ))}
+        </>
       </tbody>
     </table>
   );

@@ -48,7 +48,7 @@ const Register = () => {
         profileUpdate(name, photo)
           .then(() => {
             const saveUser = { name: data?.name, email: data?.email };
-            fetch(`${import.meta.env.VITE_SERVER_API}users/${data?.email}`, {
+            fetch(`${import.meta.env.VITE_SERVER_API}/users/${data?.email}`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const Register = () => {
         console.log(user);
 
         const saveUser = { name: user?.displayName, email: user?.email };
-        fetch(`${import.meta.env.VITE_SERVER_API}users/${user?.email}`, {
+        fetch(`${import.meta.env.VITE_SERVER_API}/users/${user?.email}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
