@@ -2,11 +2,43 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import DarkModeToggle from "react-dark-mode-toggle";
 import { useState } from "react";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
-  const user = false;
-  const { pathname } = useLocation();
+  // Context API
+  const { user, logout } = useAuth();
+
+  // State
   const [isDarkMode, setIsDarkMode] = useState(() => false);
+
+  // Location
+  const { pathname } = useLocation();
+
+  const logoutHandler = () => {
+    logout()
+      .then(() => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Logout successful!",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const navItems = (
     <>
@@ -106,7 +138,9 @@ const NavBar = () => {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 border rounded-md w-36 space-y-3 text-start text-base"
             >
               <Link className="hover:text-blue-600">Profile</Link>
-              <Link className="hover:text-blue-600">Logout</Link>
+              <Link onClick={logoutHandler} className="hover:text-blue-600">
+                Logout
+              </Link>
             </ul>
           </div>
         ) : (

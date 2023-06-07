@@ -12,5 +12,6 @@ module.exports = {
   rules: {
     "react-refresh/only-export-components": "warn",
     "react/no-unknown-property": 0,
+    "react/prop-types": 0,
   },
 };
