@@ -57,7 +57,6 @@ const Register = () => {
             })
               .then((res) => res.json())
               .then((data) => {
-                console.log(data);
                 if (data.matchedCount === 1 || data.upsertedCount === 1) {
                   reset();
                   const Toast = Swal.mixin({

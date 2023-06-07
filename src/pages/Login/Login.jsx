@@ -40,7 +40,6 @@ const Login = () => {
     loginUser(email, password)
       .then((userCredential) => {
         reset();
-        setNLoading(false);
         // Signed in
         const user = userCredential.user;
         console.log(user);
@@ -60,6 +59,8 @@ const Login = () => {
           icon: "success",
           title: "Login successful!",
         });
+        setNLoading(false);
+        setLoading(false);
         navigate(from, { replace: true });
       })
       .catch((error) => {
