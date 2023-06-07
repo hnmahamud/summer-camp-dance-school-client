@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
@@ -60,26 +61,27 @@ const AuthProviders = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
-      setFullLoading(false);
-      // if (createUser && currentUser?.email) {
-      //   axios
-      //     .post(`${import.meta.env.VITE_SERVER_API}jwt`, {
-      //       email: currentUser.email,
-      //     })
-      //     .then((response) => {
-      //       localStorage.setItem("summerCamp-access-token", response.data.token);
-      //       setLoading(false);
-      //       setFullLoading(false);
-      //     })
-      //     .catch(function (error) {
-      //       console.log(error);
-      //     });
-      // } else {
-      //   localStorage.removeItem("summerCamp-access-token");
-      //   setLoading(false);
-      //   setFullLoading(false);
-      // }
+      if (currentUser && currentUser?.email) {
+        axios
+          .post(`${import.meta.env.VITE_SERVER_API}jwt`, {
+            email: currentUser.email,
+          })
+          .then((response) => {
+            localStorage.setItem(
+              "summerCamp-access-token",
+              response.data.token
+            );
+            setLoading(false);
+            setFullLoading(false);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      } else {
+        localStorage.removeItem("summerCamp-access-token");
+        setLoading(false);
+        setFullLoading(false);
+      }
 
       return () => {
         return unsubscribe();
