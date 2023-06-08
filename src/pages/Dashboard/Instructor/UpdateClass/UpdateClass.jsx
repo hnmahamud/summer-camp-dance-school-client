@@ -35,7 +35,7 @@ const UpdateClass = () => {
       price: parseFloat(data.price),
     };
     axiosSecure
-      .patch(`/class/${id}`, updateItem)
+      .patch(`/classes/${id}`, updateItem)
       .then((data) => {
         refetch();
         setNLoading(false);

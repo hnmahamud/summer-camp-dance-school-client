@@ -1,7 +1,13 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
-import { FaAddressCard, FaHome, FaSignInAlt, FaUsers } from "react-icons/fa";
+import {
+  FaAddressCard,
+  FaHome,
+  FaSignInAlt,
+  FaUserCog,
+  FaUsers,
+} from "react-icons/fa";
 
 const Dashboard = () => {
   // Context API
@@ -11,7 +17,7 @@ const Dashboard = () => {
     return <LoadingSpinner fullScreen={true}></LoadingSpinner>;
   }
 
-  const aa = "instructor";
+  const aa = "admin";
 
   return (
     <div className="drawer lg:drawer-open">
@@ -96,8 +102,28 @@ const Dashboard = () => {
               </>
             ) : aa === "admin" ? (
               <>
-                <NavLink>Manage Classes</NavLink>
-                <NavLink>Manage Users</NavLink>
+                <NavLink
+                  to="/dashboard/manage-classes"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-700 flex items-center gap-2"
+                      : "flex items-center gap-2"
+                  }
+                >
+                  <FaUsers></FaUsers>
+                  <span>Manage Classes</span>
+                </NavLink>
+                <NavLink
+                  to="/dashboard/manage-users"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-700 flex items-center gap-2"
+                      : "flex items-center gap-2"
+                  }
+                >
+                  <FaUserCog></FaUserCog>
+                  <span>Manage Users</span>
+                </NavLink>
               </>
             ) : (
               <>
