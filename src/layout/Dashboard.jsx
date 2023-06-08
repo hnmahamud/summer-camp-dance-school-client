@@ -17,7 +17,7 @@ const Dashboard = () => {
     return <LoadingSpinner fullScreen={true}></LoadingSpinner>;
   }
 
-  const aa = "admin";
+  const aa = "instructor";
 
   return (
     <div className="drawer lg:drawer-open">

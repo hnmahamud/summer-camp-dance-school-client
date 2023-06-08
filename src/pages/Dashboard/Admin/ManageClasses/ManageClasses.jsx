@@ -136,10 +136,7 @@ const ManageClasses = () => {
                   scope="row"
                   className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  <img
-                    className="w-10 h-10 rounded-full"
-                    src={cls?.classImage}
-                  />
+                  <img className="w-16 h-16 rounded-lg" src={cls?.classImage} />
                   <div className="pl-3">
                     <div className="text-base font-semibold">
                       {cls?.className}
@@ -149,7 +146,7 @@ const ManageClasses = () => {
                 <td className="px-6 py-4">{cls?.instructorName}</td>
                 <td className="px-6 py-4">{cls?.instructorEmail}</td>
                 <td className="px-6 py-4">{cls?.availableSeats}</td>
-                <td className="px-6 py-4">{cls?.price}</td>
+                <td className="px-6 py-4">${cls?.price}</td>
                 <td className="px-6 py-4">{cls?.status}</td>
                 <td className="px-6 py-4 space-x-2 space-y-2">
                   <button

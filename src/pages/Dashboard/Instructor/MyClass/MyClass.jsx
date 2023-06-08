@@ -55,10 +55,7 @@ const MyClass = () => {
                   scope="row"
                   className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  <img
-                    className="w-10 h-10 rounded-full"
-                    src={cls?.classImage}
-                  />
+                  <img className="w-16 h-16 rounded-lg" src={cls?.classImage} />
                   <div className="pl-3">
                     <div className="text-base font-semibold">
                       {cls?.className}
@@ -66,14 +63,16 @@ const MyClass = () => {
                   </div>
                 </th>
                 <td className="px-6 py-4">{cls?.availableSeats}</td>
-                <td className="px-6 py-4">{cls?.price}</td>
+                <td className="px-6 py-4">${cls?.price}</td>
                 <td className="px-6 py-4">{cls?.status}</td>
                 <td className="px-6 py-4">0</td>
-                <td className="px-6 py-4">null</td>
+                <td className="px-6 py-4">
+                  {cls?.feedback ? cls?.feedback : "N/A"}
+                </td>
                 <td className="px-6 py-4">
                   <Link
                     to={`/dashboard/update-class/${cls._id}`}
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    className="btn btn-xs"
                   >
                     Update Class
                   </Link>
