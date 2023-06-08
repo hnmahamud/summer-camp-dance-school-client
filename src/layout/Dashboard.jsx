@@ -17,7 +17,7 @@ const Dashboard = () => {
     return <LoadingSpinner fullScreen={true}></LoadingSpinner>;
   }
 
-  const aa = "admin";
+  const aa = "";
 
   return (
     <div className="drawer lg:drawer-open">
@@ -127,7 +127,9 @@ const Dashboard = () => {
               </>
             ) : (
               <>
-                <NavLink>Selected Classes</NavLink>
+                <NavLink to="/dashboard/selected-classes">
+                  Selected Classes
+                </NavLink>
                 <NavLink>Enrolled Classes</NavLink>
                 <NavLink>Payment History</NavLink>
               </>
