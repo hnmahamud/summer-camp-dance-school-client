@@ -1,4 +1,4 @@
-const ClassCard = ({ singleClass }) => {
+const ClassCard = ({ singleClass, handleSelect }) => {
   const { classImage, className, instructorName, availableSeats, price } =
     singleClass;
   return (
@@ -18,7 +18,10 @@ const ClassCard = ({ singleClass }) => {
             <span className="font-medium">Price:</span> ${price}
           </p>
         </div>
-        <button className="btn btn-sm w-full text-white bg-blue-500 hover:bg-blue-600">
+        <button
+          onClick={() => handleSelect(singleClass)}
+          className="btn btn-sm w-full text-white bg-blue-500 hover:bg-blue-600"
+        >
           Select
         </button>
       </div>
