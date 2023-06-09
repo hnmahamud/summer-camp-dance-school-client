@@ -26,8 +26,10 @@ const Payment = () => {
   }
 
   return (
-    <div className="w-full md:w-[80%] mx-auto my-8">
-      <h3 className="text-3xl uppercase text-center">Payment</h3>
+    <div className="w-full h-[calc(100vh-192px)] flex flex-col justify-center items-center">
+      <h3 className="text-3xl font-medium text-center mb-8">
+        Payment with stripe
+      </h3>
       <Elements stripe={stripePromise}>
         <CheckoutForm singleClass={singleClass} />
       </Elements>

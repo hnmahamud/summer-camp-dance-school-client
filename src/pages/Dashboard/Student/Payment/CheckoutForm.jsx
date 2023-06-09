@@ -136,7 +136,7 @@ const CheckoutForm = ({ singleClass }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-[90%] md:w-[50%]">
+    <form onSubmit={handleSubmit} className="w-[90%] md:w-[40%] mx-auto">
       {cardError && <p className="text-error">{cardError}</p>}
       {cardSuccess && (
         <p className="text-success">

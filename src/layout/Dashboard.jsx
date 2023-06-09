@@ -11,10 +11,36 @@ import {
   FaUserCog,
   FaUsers,
 } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Dashboard = () => {
   // Context API
-  const { user, fullLoading } = useAuth();
+  const { user, fullLoading, logout } = useAuth();
+
+  const logoutHandler = () => {
+    logout()
+      .then(() => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Logout successful!",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   if (fullLoading) {
     return <LoadingSpinner fullScreen={true}></LoadingSpinner>;
@@ -153,7 +179,7 @@ const Dashboard = () => {
                   <span>Enrolled Classes</span>
                 </NavLink>
                 <NavLink
-                  to="/dashboard/payment-history"
+                  to="/dashboard/payments-history"
                   className={({ isActive }) =>
                     isActive
                       ? "text-blue-700 flex items-center gap-2"
@@ -183,10 +209,10 @@ const Dashboard = () => {
               <FaHome></FaHome>
               <span>Home</span>
             </NavLink>
-            <NavLink className="flex items-center gap-2">
+            <button onClick={logoutHandler} className="flex items-center gap-2">
               <FaSignInAlt></FaSignInAlt>
               <span>Logout</span>
-            </NavLink>
+            </button>
           </div>
         </ul>
       </div>
