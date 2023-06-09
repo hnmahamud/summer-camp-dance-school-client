@@ -187,7 +187,7 @@ const Dashboard = () => {
                   }
                 >
                   <FaCreditCard></FaCreditCard>
-                  <span>Payment History</span>
+                  <span>Payments History</span>
                 </NavLink>
               </>
             )}

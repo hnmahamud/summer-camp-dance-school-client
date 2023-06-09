@@ -7,13 +7,10 @@ import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const CheckoutForm = ({ singleClass }) => {
-  // cart, price
   const {
     classId,
     className,
     classImage,
-    studentName,
-    studentEmail,
     instructorName,
     instructorEmail,
     price,
@@ -98,8 +95,12 @@ const CheckoutForm = ({ singleClass }) => {
       const paymentHistory = {
         classId,
         className,
-        price,
+        classImage,
+        studentName: user?.displayName,
         studentEmail: user?.email,
+        instructorName,
+        instructorEmail,
+        price,
         transactionId: paymentIntent.id,
         date: new Date(),
       };
@@ -108,8 +109,8 @@ const CheckoutForm = ({ singleClass }) => {
         classId,
         className,
         classImage,
-        studentName,
-        studentEmail,
+        studentName: user?.displayName,
+        studentEmail: user?.email,
         instructorName,
         instructorEmail,
         price,
@@ -129,7 +130,7 @@ const CheckoutForm = ({ singleClass }) => {
               "Payment has been submitted.",
               "success"
             );
-            navigate("/dashboard/selected-classes", { replace: true });
+            navigate("/dashboard/payments-history", { replace: true });
           }
         });
     }
