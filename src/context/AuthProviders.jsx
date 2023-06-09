@@ -75,6 +75,8 @@ const AuthProviders = ({ children }) => {
             setFullLoading(false);
           })
           .catch(function (error) {
+            setLoading(false);
+            setFullLoading(false);
             console.log(error);
           });
       } else {

@@ -4,10 +4,12 @@ import DarkModeToggle from "react-dark-mode-toggle";
 import { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useRole from "../../../hooks/useRole";
 
 const NavBar = () => {
   // Context API
   const { user, logout } = useAuth();
+  const [role] = useRole();
 
   // State
   const [isDarkMode, setIsDarkMode] = useState(() => false);
@@ -66,7 +68,15 @@ const NavBar = () => {
       {user && (
         <>
           <NavLink
-            to="/dashboard"
+            to={`${
+              role === "student"
+                ? "/dashboard/selected-classes"
+                : role === "admin"
+                ? "/dashboard/manage-classes"
+                : role === "instructor"
+                ? "/dashboard/my-class"
+                : "/"
+            }`}
             className={`${
               pathname === "/dashboard" && "text-blue-600"
             } hover:text-blue-600`}
@@ -77,6 +87,7 @@ const NavBar = () => {
       )}
     </>
   );
+
   return (
     <div className="navbar bg-base-100 border-b shadow-sm">
       <div className="navbar-start">

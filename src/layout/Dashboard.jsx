@@ -12,10 +12,12 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useRole from "../hooks/useRole";
 
 const Dashboard = () => {
   // Context API
   const { user, fullLoading, logout } = useAuth();
+  const [role, isRoleLoading] = useRole();
 
   const logoutHandler = () => {
     logout()
@@ -42,11 +44,9 @@ const Dashboard = () => {
       });
   };
 
-  if (fullLoading) {
+  if (fullLoading || isRoleLoading) {
     return <LoadingSpinner fullScreen={true}></LoadingSpinner>;
   }
-
-  const aa = "";
 
   return (
     <div className="drawer lg:drawer-open">
@@ -104,7 +104,7 @@ const Dashboard = () => {
 
           {/* Dynamic */}
           <div className="text-base flex flex-col space-y-6 ml-16">
-            {aa === "instructor" ? (
+            {role === "instructor" ? (
               <>
                 <NavLink
                   to="/dashboard/add-class"
@@ -129,7 +129,7 @@ const Dashboard = () => {
                   <span>My Classes</span>
                 </NavLink>
               </>
-            ) : aa === "admin" ? (
+            ) : role === "admin" ? (
               <>
                 <NavLink
                   to="/dashboard/manage-classes"
