@@ -5,9 +5,11 @@ import ClassCard from "./ClassCard";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useRole from "../../hooks/useRole";
 
 const Classes = () => {
   const { user } = useAuth();
+  const [role] = useRole();
 
   const navigate = useNavigate();
 
@@ -64,8 +66,22 @@ const Classes = () => {
   };
 
   return (
-    <div className="my-16">
-      <h3>Classes</h3>
+    <div className="my-16 space-y-8">
+      <div className="md:w-[80%] mx-auto md:text-center space-y-4">
+        <h3 className="text-blue-500 text-2xl md:text-3xl font-semibold">
+          Explore Our Exciting Dance Classes
+        </h3>
+        <p>
+          Get ready to discover a world of dance at Summer Camp Dance School!
+          Our diverse range of classes offers something for everyone, from
+          budding beginners to seasoned dancers. Immerse yourself in the grace
+          of ballet, groove to the beats of hip-hop, unleash your creativity in
+          contemporary fusion, or master the rhythmic footwork of tap. Led by
+          passionate instructors, our classes are designed to inspire,
+          challenge, and cultivate your love for dance. Join us and embark on an
+          extraordinary dance journey this summer at Summer Camp Dance School.
+        </p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {classes.length > 0 &&
           classes.map((singleClass) => (
@@ -73,6 +89,7 @@ const Classes = () => {
               key={singleClass._id}
               singleClass={singleClass}
               handleSelect={handleSelect}
+              role={role}
             ></ClassCard>
           ))}
       </div>

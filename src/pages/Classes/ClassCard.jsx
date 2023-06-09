@@ -1,9 +1,15 @@
-const ClassCard = ({ singleClass, handleSelect }) => {
+const ClassCard = ({ singleClass, handleSelect, role }) => {
   const { classImage, className, instructorName, availableSeats, price } =
     singleClass;
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow">
-      <img className="rounded-t-lg h-60 w-full" src={classImage} alt="" />
+    <div
+      className={`${
+        availableSeats < 1
+          ? "bg-error border border-error"
+          : "bg-white border border-gray-200"
+      } rounded-md shadow`}
+    >
+      <img className="rounded-md h-60 w-full" src={classImage} alt="" />
       <div className="p-5">
         <h5 className="mb-2 text-2xl font-bold tracking-tight ">{className}</h5>
         <p className="font-normal">
@@ -19,6 +25,11 @@ const ClassCard = ({ singleClass, handleSelect }) => {
           </p>
         </div>
         <button
+          disabled={
+            role === "admin" || role === "instructor" || availableSeats < 1
+              ? true
+              : false
+          }
           onClick={() => handleSelect(singleClass)}
           className="btn btn-sm w-full text-white bg-blue-500 hover:bg-blue-600"
         >
