@@ -59,7 +59,6 @@ const Login = () => {
           title: "Login successful!",
         });
         setNLoading(false);
-        setLoading(false);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -107,7 +106,6 @@ const Login = () => {
                 icon: "success",
                 title: "Login successful!",
               });
-              setLoading(false);
               setNLoading(false);
               navigate(from, { replace: true });
             }

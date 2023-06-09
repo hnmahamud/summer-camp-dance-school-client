@@ -74,7 +74,6 @@ const Register = () => {
                     icon: "success",
                     title: "Registration successful!",
                   });
-                  setLoading(false);
                   setNLoading(false);
                   navigate(from, { replace: true });
                 }
@@ -139,7 +138,6 @@ const Register = () => {
                 icon: "success",
                 title: "Login successful!",
               });
-              setLoading(false);
               setNLoading(false);
               navigate(from, { replace: true });
             }
