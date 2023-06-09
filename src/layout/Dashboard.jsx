@@ -3,7 +3,10 @@ import useAuth from "../hooks/useAuth";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import {
   FaAddressCard,
+  FaCheckCircle,
+  FaCreditCard,
   FaHome,
+  FaPlusCircle,
   FaSignInAlt,
   FaUserCog,
   FaUsers,
@@ -127,11 +130,39 @@ const Dashboard = () => {
               </>
             ) : (
               <>
-                <NavLink to="/dashboard/selected-classes">
-                  Selected Classes
+                <NavLink
+                  to="/dashboard/selected-classes"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-700 flex items-center gap-2"
+                      : "flex items-center gap-2"
+                  }
+                >
+                  <FaCheckCircle></FaCheckCircle>
+                  <span>Selected Classes</span>
                 </NavLink>
-                <NavLink>Enrolled Classes</NavLink>
-                <NavLink>Payment History</NavLink>
+                <NavLink
+                  to="/dashboard/enrolled-classes"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-700 flex items-center gap-2"
+                      : "flex items-center gap-2"
+                  }
+                >
+                  <FaPlusCircle></FaPlusCircle>
+                  <span>Enrolled Classes</span>
+                </NavLink>
+                <NavLink
+                  to="/dashboard/payment-history"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-700 flex items-center gap-2"
+                      : "flex items-center gap-2"
+                  }
+                >
+                  <FaCreditCard></FaCreditCard>
+                  <span>Payment History</span>
+                </NavLink>
               </>
             )}
           </div>

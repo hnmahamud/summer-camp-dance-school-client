@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 import useAuth from "../../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
   const { user } = useAuth();
@@ -91,7 +92,12 @@ const SelectedClasses = () => {
                 <td className="px-6 py-4">{cls?.instructorEmail}</td>
                 <td className="px-6 py-4">${cls?.price}</td>
                 <td className="px-6 py-4 space-x-2 space-y-2">
-                  <button className="btn btn-xs">Pay</button>
+                  <Link
+                    to={`/dashboard/payment/${cls?._id}`}
+                    className="btn btn-xs"
+                  >
+                    Pay
+                  </Link>
                   <button
                     onClick={() => handleDelete(cls?._id)}
                     className="btn btn-xs"
