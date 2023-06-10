@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-import logo from "../../../assets/logo.png";
+// import logo from "../../../assets/logo.png";
 import DarkModeToggle from "react-dark-mode-toggle";
 import { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
@@ -110,13 +110,13 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 space-y-4 text-base"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 space-y-4 text-base z-10"
           >
             {navItems}
           </ul>
         </div>
         <Link to="/" className="flex items-center gap-2">
-          <img className="h-12 w-12 hidden md:block" src={logo} alt="" />
+          {/* <img className="h-12 w-12 hidden md:block" src={logo} alt="" /> */}
           <span className="text-lg font-semibold">DanceCampX</span>
         </Link>
       </div>
@@ -136,7 +136,7 @@ const NavBar = () => {
 
         {user ? (
           <div
-            className="dropdown dropdown-end tooltip tooltip-left ml-8"
+            className="dropdown dropdown-end tooltip tooltip-left ml-8 z-10"
             data-tip={user?.displayName}
           >
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

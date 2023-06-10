@@ -1,14 +1,16 @@
-import logo from "../../../assets/logo.png";
+import moment from "moment/moment";
+
+// import logo from "../../../assets/logo.png";
 const Footer = () => {
   return (
     <>
       <footer className="footer p-10 bg-base-200 text-base-content">
         <div>
-          <img className="w-16 h-16" src={logo} alt="" />
+          {/* <img className="w-16 h-16" src={logo} alt="" /> */}
           <p>
-            DanceCampX
+            <span className="text-2xl font-semibold">DanceCampX</span>
             <br />
-            Copyright © 2023 - All right reserved
+            Copyright © {moment().format("YYYY")} - All right reserved
           </p>
         </div>
         <div>

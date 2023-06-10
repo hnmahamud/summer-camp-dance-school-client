@@ -123,7 +123,8 @@ const CheckoutForm = ({ singleClass }) => {
             res.data.insertPaymentHistory.insertedId &&
             res.data.insertEnrolledClass.insertedId &&
             res.data.deleteSelectedClass.deletedCount === 1 &&
-            res.data.updateAvailableSeats.modifiedCount > 0
+            res.data.updateSeats.modifiedCount > 0 &&
+            res.data.updateInstructor.modifiedCount > 0
           ) {
             Swal.fire(
               "Payment Successful!",

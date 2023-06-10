@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import Slider from "../Slider/Slider";
 
 const Home = () => {
   return (
@@ -7,7 +8,7 @@ const Home = () => {
         <title>DanceCampX - Home</title>
       </Helmet>
       <div>
-        <h3>Hello</h3>
+        <Slider></Slider>
       </div>
     </>
   );
