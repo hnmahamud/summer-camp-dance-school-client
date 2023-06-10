@@ -39,10 +39,21 @@ const Classes = () => {
     };
     if (user) {
       axiosSecure
-        .post("/selected-classes", selectedClass)
+        .get(`/exist-classes?email=${user?.email}&id=${singleClass._id}`)
         .then((data) => {
-          if (data.data.insertedId) {
-            Swal.fire("Selected!", "Class has been selected.", "success");
+          if (data.data.isExist === false) {
+            axiosSecure
+              .post("/selected-classes", selectedClass)
+              .then((data) => {
+                if (data.data.insertedId) {
+                  Swal.fire("Selected!", "Class has been selected.", "success");
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          } else {
+            Swal.fire("failed!", "Class has already been selected.", "error");
           }
         })
         .catch((error) => {

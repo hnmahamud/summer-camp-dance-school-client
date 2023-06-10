@@ -79,7 +79,11 @@ const Login = () => {
         const user = result.user;
         console.log(user);
 
-        const saveUser = { name: user.displayName, email: user.email };
+        const saveUser = {
+          profilePhoto: user?.photoURL,
+          name: user?.displayName,
+          email: user?.email,
+        };
         fetch(`${import.meta.env.VITE_SERVER_API}/users/${user?.email}`, {
           method: "PUT",
           headers: {

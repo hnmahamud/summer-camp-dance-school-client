@@ -47,7 +47,11 @@ const Register = () => {
         // Update user profile
         profileUpdate(name, photo)
           .then(() => {
-            const saveUser = { name: data?.name, email: data?.email };
+            const saveUser = {
+              profilePhoto: data?.photoUrl,
+              name: data?.name,
+              email: data?.email,
+            };
             fetch(`${import.meta.env.VITE_SERVER_API}/users/${data?.email}`, {
               method: "PUT",
               headers: {
@@ -110,7 +114,11 @@ const Register = () => {
         const user = result.user;
         console.log(user);
 
-        const saveUser = { name: user?.displayName, email: user?.email };
+        const saveUser = {
+          profilePhoto: user?.photoURL,
+          name: user?.displayName,
+          email: user?.email,
+        };
         fetch(`${import.meta.env.VITE_SERVER_API}/users/${user?.email}`, {
           method: "PUT",
           headers: {
@@ -120,7 +128,6 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.matchedCount === 1 || data.upsertedCount === 1) {
               const Toast = Swal.mixin({
                 toast: true,
