@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ClassCard from "./ClassCard";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useRole from "../../hooks/useRole";
+import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Classes = () => {
   const { user } = useAuth();
@@ -17,7 +18,9 @@ const Classes = () => {
   const { data: classes = [], isLoading } = useQuery({
     queryKey: ["classes-approved"],
     queryFn: async () => {
-      const response = await axiosSecure.get("/classes-approved");
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVER_API}/classes-approved`
+      );
       return response.data;
     },
   });

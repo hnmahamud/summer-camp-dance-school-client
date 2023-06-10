@@ -74,7 +74,7 @@ const NavBar = () => {
                 : role === "admin"
                 ? "/dashboard/manage-classes"
                 : role === "instructor"
-                ? "/dashboard/my-class"
+                ? "/dashboard/add-class"
                 : "/"
             }`}
             className={`${
