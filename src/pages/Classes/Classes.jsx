@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useRole from "../../hooks/useRole";
 import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Fade } from "react-awesome-reveal";
 
 const Classes = () => {
   const { user } = useAuth();
@@ -82,31 +83,36 @@ const Classes = () => {
   return (
     <div className="my-16 space-y-8">
       <div className="md:w-[80%] mx-auto md:text-center space-y-4">
-        <h2 className="text-center text-3xl font-bold">
-          Explore Our{" "}
-          <u className="text-primary dark:text-primary-400">Dance Classes</u>
-        </h2>
-        <p>
-          Get ready to discover a world of dance at Summer Camp Dance School!
-          Our diverse range of classes offers something for everyone, from
-          budding beginners to seasoned dancers. Immerse yourself in the grace
-          of ballet, groove to the beats of hip-hop, unleash your creativity in
-          contemporary fusion, or master the rhythmic footwork of tap. Led by
-          passionate instructors, our classes are designed to inspire,
-          challenge, and cultivate your love for dance. Join us and embark on an
-          extraordinary dance journey this summer at Summer Camp Dance School.
-        </p>
+        <Fade cascade damping={0.2}>
+          <h2 className="text-center text-3xl font-bold">
+            Explore Our{" "}
+            <u className="text-primary dark:text-primary-400">Dance Classes</u>
+          </h2>
+          <p>
+            Get ready to discover a world of dance at Summer Camp Dance School!
+            Our diverse range of classes offers something for everyone, from
+            budding beginners to seasoned dancers. Immerse yourself in the grace
+            of ballet, groove to the beats of hip-hop, unleash your creativity
+            in contemporary fusion, or master the rhythmic footwork of tap. Led
+            by passionate instructors, our classes are designed to inspire,
+            challenge, and cultivate your love for dance. Join us and embark on
+            an extraordinary dance journey this summer at Summer Camp Dance
+            School.
+          </p>
+        </Fade>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {classes.length > 0 &&
-          classes.map((singleClass) => (
-            <ClassCard
-              key={singleClass._id}
-              singleClass={singleClass}
-              handleSelect={handleSelect}
-              role={role}
-            ></ClassCard>
-          ))}
+        <Fade cascade damping={0.2}>
+          {classes.length > 0 &&
+            classes.map((singleClass) => (
+              <ClassCard
+                key={singleClass._id}
+                singleClass={singleClass}
+                handleSelect={handleSelect}
+                role={role}
+              ></ClassCard>
+            ))}
+        </Fade>
       </div>
     </div>
   );

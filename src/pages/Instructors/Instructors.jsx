@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import InstructorCard from "./InstructorCard";
+import { Fade } from "react-awesome-reveal";
 
 const Instructors = () => {
   const { data: instructors = [], isLoading } = useQuery({
@@ -21,30 +22,35 @@ const Instructors = () => {
   return (
     <div className="my-16 space-y-8">
       <div className="md:w-[80%] mx-auto md:text-center space-y-4">
-        <h2 className="text-center text-3xl font-bold">
-          Meet Our{" "}
-          <u className="text-primary dark:text-primary-400">
-            Dance Instructors
-          </u>
-        </h2>
-        <p>
-          Our talented and passionate dance instructors at Summer Camp Dance
-          School bring diverse backgrounds and expertise to their classes. From
-          ballet to hip-hop, contemporary to tap, they foster growth and ignite
-          a love for dance in a dynamic learning environment. Get ready to be
-          inspired by our exceptional team as you embark on a journey of
-          self-expression, skill development, and creativity. Elevate your dance
-          experience with our inspiring instructors at Summer Camp Dance School.
-        </p>
+        <Fade cascade damping={0.2}>
+          <h2 className="text-center text-3xl font-bold">
+            Meet Our{" "}
+            <u className="text-primary dark:text-primary-400">
+              Dance Instructors
+            </u>
+          </h2>
+          <p>
+            Our talented and passionate dance instructors at Summer Camp Dance
+            School bring diverse backgrounds and expertise to their classes.
+            From ballet to hip-hop, contemporary to tap, they foster growth and
+            ignite a love for dance in a dynamic learning environment. Get ready
+            to be inspired by our exceptional team as you embark on a journey of
+            self-expression, skill development, and creativity. Elevate your
+            dance experience with our inspiring instructors at Summer Camp Dance
+            School.
+          </p>
+        </Fade>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {instructors.length > 0 &&
-          instructors.map((singleCard) => (
-            <InstructorCard
-              key={singleCard._id}
-              singleCard={singleCard}
-            ></InstructorCard>
-          ))}
+        <Fade cascade damping={0.2}>
+          {instructors.length > 0 &&
+            instructors.map((singleCard) => (
+              <InstructorCard
+                key={singleCard._id}
+                singleCard={singleCard}
+              ></InstructorCard>
+            ))}
+        </Fade>
       </div>
     </div>
   );
