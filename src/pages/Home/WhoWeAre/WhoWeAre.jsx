@@ -1,19 +1,29 @@
 import { Fade } from "react-awesome-reveal";
 import { FaRegCheckCircle } from "react-icons/fa";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 const WhoWeAre = () => {
+  const { darkMode } = useDarkMode();
   return (
     <section className="my-16 md:my-32 text-center">
       <Fade cascade damping={0.2}>
         <div className="flex justify-center">
-          <div className="max-w-[700px] text-center">
+          <div
+            className={`${
+              darkMode ? "text-gray-300" : ""
+            } max-w-[700px] text-center`}
+          >
             <h2 className="mb-6 text-center text-3xl font-bold">
               Who we are and why{" "}
               <u className="text-primary dark:text-primary-400">
                 we are famous?
               </u>
             </h2>
-            <p className="mb-16 text-neutral-500 dark:text-neutral-300">
+            <p
+              className={`${
+                darkMode ? "text-gray-300" : ""
+              } mb-16 text-neutral-500 dark:text-neutral-300`}
+            >
               DanceCampX is an exciting and dynamic dance school that brings
               together dancers of all ages and levels to explore the world of
               dance. With a team of talented instructors and a vibrant
@@ -28,7 +38,7 @@ const WhoWeAre = () => {
 
       <div className="grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
         <Fade cascade damping={0.2}>
-          <div className="mb-12 lg:mb-0">
+          <div className={`${darkMode ? "text-gray-300" : ""} mb-12 lg:mb-0`}>
             <div className="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,13 +56,17 @@ const WhoWeAre = () => {
               </svg>
             </div>
             <h5 className="mb-4 text-lg font-bold">Support 24/7</h5>
-            <p className="text-neutral-500 dark:text-neutral-300">
+            <p
+              className={`${
+                darkMode ? "text-gray-300" : ""
+              } mb-16 text-neutral-500 dark:text-neutral-300`}
+            >
               We provide round-the-clock assistance to ensure that dancers
               receive the support they need whenever they need it.
             </p>
           </div>
 
-          <div className="mb-12 lg:mb-0">
+          <div className={`${darkMode ? "text-gray-300" : ""} mb-12 lg:mb-0`}>
             <div className="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,25 +84,33 @@ const WhoWeAre = () => {
               </svg>
             </div>
             <h5 className="mb-4 text-lg font-bold">Safe and solid</h5>
-            <p className="text-neutral-500 dark:text-neutral-300">
+            <p
+              className={`${
+                darkMode ? "text-gray-300" : ""
+              } mb-16 text-neutral-500 dark:text-neutral-300`}
+            >
               Our dance school prioritizes the safety and well-being of our
               students, offering a secure and reliable environment.
             </p>
           </div>
 
-          <div className="mb-12 md:mb-0">
+          <div className={`${darkMode ? "text-gray-300" : ""} mb-12 lg:mb-0`}>
             <div className="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
               <FaRegCheckCircle className="h-6 w-6"></FaRegCheckCircle>
             </div>
             <h5 className="mb-4 text-lg font-bold">Extremely fast</h5>
-            <p className="text-neutral-500 dark:text-neutral-300">
+            <p
+              className={`${
+                darkMode ? "text-gray-300" : ""
+              } mb-16 text-neutral-500 dark:text-neutral-300`}
+            >
               Our classes are designed to deliver rapid progress, allowing
               dancers to see significant improvement in their skills and
               technique.
             </p>
           </div>
 
-          <div className="mb-12 md:mb-0">
+          <div className={`${darkMode ? "text-gray-300" : ""} mb-12 lg:mb-0`}>
             <div className="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +133,11 @@ const WhoWeAre = () => {
               </svg>
             </div>
             <h5 className="mb-4 text-lg font-bold">Live analytics</h5>
-            <p className="text-neutral-500 dark:text-neutral-300">
+            <p
+              className={`${
+                darkMode ? "text-gray-300" : ""
+              } mb-16 text-neutral-500 dark:text-neutral-300`}
+            >
               Through live analytics, we provide real-time feedback and insights
               to help dancers track their progress, identify areas for
               improvement.

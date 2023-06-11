@@ -1,18 +1,16 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 // import logo from "../../../assets/logo.png";
-import DarkModeToggle from "react-dark-mode-toggle";
-import { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useRole from "../../../hooks/useRole";
+import { FaMoon, FaSun } from "react-icons/fa";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 const NavBar = () => {
   // Context API
   const { user, logout } = useAuth();
   const [role] = useRole();
-
-  // State
-  const [isDarkMode, setIsDarkMode] = useState(() => false);
+  const { darkMode, handleDarkMode } = useDarkMode();
 
   // Location
   const { pathname } = useLocation();
@@ -89,7 +87,11 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 border-b shadow-sm">
+    <div
+      className={`${
+        darkMode ? "bg-black text-gray-300 border-gray-700" : "bg-base-100"
+      } navbar border-b shadow-sm`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -128,11 +130,13 @@ const NavBar = () => {
           </ul>
         </div>
 
-        <DarkModeToggle
-          onChange={setIsDarkMode}
-          checked={isDarkMode}
-          size={55}
-        />
+        <button onClick={handleDarkMode}>
+          {darkMode ? (
+            <FaSun className="w-5 h-5"></FaSun>
+          ) : (
+            <FaMoon className="w-5 h-5"></FaMoon>
+          )}
+        </button>
 
         {user ? (
           <div

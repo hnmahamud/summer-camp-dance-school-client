@@ -2,8 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import InstructorCard from "./InstructorCard";
 import { Fade } from "react-awesome-reveal";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 const PopularInstructors = () => {
+  const { darkMode } = useDarkMode();
+
   const { data: topInstructors = [] } = useQuery({
     queryKey: ["instructor-top"],
     queryFn: async () => {
@@ -15,7 +18,11 @@ const PopularInstructors = () => {
   });
 
   return (
-    <section className="my-16 md:my-32 text-center lg:text-left">
+    <section
+      className={`${
+        darkMode ? "text-gray-300" : ""
+      } my-16 md:my-32 text-center lg:text-left`}
+    >
       <Fade cascade damping={0.2}>
         <div className="md:w-[80%] mx-auto md:text-center space-y-4 mb-8">
           <h2 className="text-center text-3xl font-bold">

@@ -1,19 +1,25 @@
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaUserCircle } from "react-icons/fa";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 const ClassCard = ({ singleClass }) => {
+  const { darkMode } = useDarkMode();
   const { classImage, className, instructorName, instructorEmail } =
     singleClass;
   return (
     <div
-      className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
+      className={`${
+        darkMode ? "bg-black border border-gray-700" : "bg-white"
+      } block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700`}
       data-te-ripple-init
       data-te-ripple-color="light"
     >
       <div className="relative overflow-hidden bg-cover bg-no-repeat">
         <img src={classImage} className="w-full h-60 rounded-t-lg" />
         <svg
-          className="absolute left-0 bottom-0 text-white dark:text-neutral-700"
+          className={`${
+            darkMode ? "text-black" : "text-white"
+          } absolute left-0 bottom-0 dark:text-neutral-700`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
         >
@@ -36,7 +42,7 @@ const ClassCard = ({ singleClass }) => {
           to="/classes"
           data-te-ripple-init
           data-te-ripple-color="light"
-          className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white"
         >
           See Details
         </Link>

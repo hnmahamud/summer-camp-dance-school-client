@@ -1,15 +1,21 @@
 import { Fade } from "react-awesome-reveal";
+import useDarkMode from "../../../hooks/useDarkMode";
 
 const ContactUs = () => {
+  const { darkMode } = useDarkMode();
   return (
     <Fade cascade damping={0.2}>
-      <section className="my-16 md:my-32">
+      <section className={`${darkMode ? "text-white" : ""} my-16 md:my-32`}>
         <div className="md:w-[80%] mx-auto md:text-center space-y-4 mb-8">
           <h2 className="text-center text-3xl font-bold">
             Contact <u className="text-primary dark:text-primary-400">Us</u>
           </h2>
         </div>
-        <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+        <div
+          className={`${
+            darkMode ? "bg-black border border-gray-700" : "bg-white"
+          } block rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700`}
+        >
           <div className="flex flex-wrap items-center">
             <div className="block w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
               <div className="h-[500px] w-full">
