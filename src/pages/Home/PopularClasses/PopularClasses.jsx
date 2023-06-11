@@ -13,14 +13,12 @@ const PopularClasses = () => {
     },
   });
 
-  console.log(topClasses);
-
   return (
     <section className="my-32 text-center lg:text-left">
       <div className="md:w-[80%] mx-auto md:text-center space-y-4 mb-8">
-        <h3 className="text-blue-500 text-2xl md:text-3xl font-semibold">
-          Popular Classes
-        </h3>
+        <h2 className="text-center text-3xl font-bold">
+          Popular <u className="text-primary dark:text-primary-400">Classes</u>
+        </h2>
         <p>
           Discover our most sought-after dance classes at Summer Camp Dance
           School. These classes have captured the hearts of dancers of all
@@ -31,7 +29,7 @@ const PopularClasses = () => {
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 gap-4">
         {topClasses.length > 0 &&
           topClasses.map((singleClass) => (
             <ClassCard
