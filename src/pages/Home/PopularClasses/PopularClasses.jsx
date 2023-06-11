@@ -14,7 +14,7 @@ const PopularClasses = () => {
   });
 
   return (
-    <section className="my-32 text-center lg:text-left">
+    <section className="my-16 md:my-32 text-center lg:text-left">
       <div className="md:w-[80%] mx-auto md:text-center space-y-4 mb-8">
         <h2 className="text-center text-3xl font-bold">
           Popular <u className="text-primary dark:text-primary-400">Classes</u>

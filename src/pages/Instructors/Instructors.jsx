@@ -21,9 +21,12 @@ const Instructors = () => {
   return (
     <div className="my-16 space-y-8">
       <div className="md:w-[80%] mx-auto md:text-center space-y-4">
-        <h3 className="text-blue-500 text-2xl md:text-3xl font-semibold">
-          Meet Our Inspiring Dance Instructors
-        </h3>
+        <h2 className="text-center text-3xl font-bold">
+          Meet Our{" "}
+          <u className="text-primary dark:text-primary-400">
+            Dance Instructors
+          </u>
+        </h2>
         <p>
           Our talented and passionate dance instructors at Summer Camp Dance
           School bring diverse backgrounds and expertise to their classes. From

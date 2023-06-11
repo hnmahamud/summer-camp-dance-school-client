@@ -82,9 +82,10 @@ const Classes = () => {
   return (
     <div className="my-16 space-y-8">
       <div className="md:w-[80%] mx-auto md:text-center space-y-4">
-        <h3 className="text-blue-500 text-2xl md:text-3xl font-semibold">
-          Explore Our Exciting Dance Classes
-        </h3>
+        <h2 className="text-center text-3xl font-bold">
+          Explore Our{" "}
+          <u className="text-primary dark:text-primary-400">Dance Classes</u>
+        </h2>
         <p>
           Get ready to discover a world of dance at Summer Camp Dance School!
           Our diverse range of classes offers something for everyone, from

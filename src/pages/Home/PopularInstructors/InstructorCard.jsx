@@ -8,7 +8,7 @@ const InstructorCard = ({ singleInstructor }) => {
         <div className="w-full shrink-0 grow-0 basis-auto lg:w-5/12 lg:pr-6">
           <img
             src={profilePhoto}
-            className="mb-6 w-full h-24 rounded-md lg:mb-0"
+            className="mb-6 w-full md:h-24 rounded-md lg:mb-0"
           />
         </div>
         <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
