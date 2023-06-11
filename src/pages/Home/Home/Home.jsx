@@ -4,6 +4,7 @@ import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import ContactUs from "../ContactUs/ContactUs";
 import WhoWeAre from "../WhoWeAre/WhoWeAre";
+import GetReady from "../GetReady/GetReady";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <WhoWeAre></WhoWeAre>
         <PopularClasses></PopularClasses>
         <PopularInstructors></PopularInstructors>
+        <GetReady></GetReady>
         <ContactUs></ContactUs>
       </div>
     </>

@@ -4,10 +4,10 @@ import "react-awesome-slider/dist/styles.css";
 import "react-awesome-slider/dist/custom-animations/fall-animation.css";
 import { Link } from "react-router-dom";
 
-import img1 from "../../../assets/photos/slider/img1.jpg";
-import img2 from "../../../assets/photos/slider/img2.jpg";
+import img1 from "../../../assets/photos/slider/img2.jpg";
+import img2 from "../../../assets/photos/slider/img4.jpg";
 import img3 from "../../../assets/photos/slider/img3.jpg";
-import img4 from "../../../assets/photos/slider/img4.jpg";
+import img4 from "../../../assets/photos/slider/img1.jpg";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
