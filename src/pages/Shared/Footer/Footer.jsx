@@ -1,7 +1,7 @@
 import moment from "moment/moment";
 import useDarkMode from "../../../hooks/useDarkMode";
 
-// import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo.png";
 const Footer = () => {
   const { darkMode } = useDarkMode();
   return (
@@ -13,7 +13,7 @@ const Footer = () => {
       } footer p-10  text-base-content`}
     >
       <div>
-        {/* <img className="w-16 h-16" src={logo} alt="" /> */}
+        <img className="w-16 h-16" src={logo} alt="" />
         <p>
           <span className="text-2xl font-semibold">DanceCampX</span>
           <br />

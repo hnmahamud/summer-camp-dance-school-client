@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-// import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo.png";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useRole from "../../../hooks/useRole";
@@ -118,7 +118,7 @@ const NavBar = () => {
           </ul>
         </div>
         <Link to="/" className="flex items-center gap-2">
-          {/* <img className="h-12 w-12 hidden md:block" src={logo} alt="" /> */}
+          <img className="h-12 w-12 hidden md:block" src={logo} alt="" />
           <span className="text-lg font-semibold">DanceCampX</span>
         </Link>
       </div>
