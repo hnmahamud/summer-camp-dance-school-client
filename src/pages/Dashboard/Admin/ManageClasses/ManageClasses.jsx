@@ -148,7 +148,7 @@ const ManageClasses = () => {
                 <td className="px-6 py-4">{cls?.availableSeats}</td>
                 <td className="px-6 py-4">${cls?.price}</td>
                 <td className="px-6 py-4">{cls?.status}</td>
-                <td className="px-6 py-4 space-x-2 space-y-2">
+                <td className="space-x-2">
                   <button
                     onClick={() => handleApprove(cls?._id)}
                     disabled={cls?.status === "pending" ? false : true}
