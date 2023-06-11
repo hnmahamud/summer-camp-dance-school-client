@@ -49,22 +49,7 @@ const AddClass = () => {
               reset();
               setText("");
               console.log(data);
-              const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener("mouseenter", Swal.stopTimer);
-                  toast.addEventListener("mouseleave", Swal.resumeTimer);
-                },
-              });
-
-              Toast.fire({
-                icon: "success",
-                title: "Class added successful!",
-              });
+              Swal.fire("Added!", "Class has been added.", "success");
             })
             .catch((error) => {
               setNLoading(false);

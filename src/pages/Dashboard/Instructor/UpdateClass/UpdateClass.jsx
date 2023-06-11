@@ -40,22 +40,7 @@ const UpdateClass = () => {
         refetch();
         setNLoading(false);
         console.log(data);
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
-
-        Toast.fire({
-          icon: "success",
-          title: "Class update successful!",
-        });
+        Swal.fire("Updated!", "Class has been updated.", "success");
         navigate("/dashboard/my-class", { replace: true });
       })
       .catch((error) => {

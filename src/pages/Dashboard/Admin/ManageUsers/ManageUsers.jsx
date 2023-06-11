@@ -49,7 +49,7 @@ const ManageUsers = () => {
           .then((data) => {
             if (data.data.modifiedCount > 0) {
               refetch();
-              Swal.fire("Role has been changed.", "success");
+              Swal.fire("Changed!", "Role has been changed.", "success");
             }
           })
           .catch((error) => {
@@ -84,7 +84,7 @@ const ManageUsers = () => {
           .then((data) => {
             if (data.data.modifiedCount > 0) {
               refetch();
-              Swal.fire("Role has been changed.", "success");
+              Swal.fire("Changed!", "Role has been changed.", "success");
             }
           })
           .catch((error) => {

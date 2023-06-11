@@ -126,11 +126,7 @@ const CheckoutForm = ({ singleClass }) => {
             res.data.updateSeats.modifiedCount > 0 &&
             res.data.updateInstructor.modifiedCount > 0
           ) {
-            Swal.fire(
-              "Payment Successful!",
-              "Payment has been submitted.",
-              "success"
-            );
+            Swal.fire("Successful!", "Payment has been submitted.", "success");
             navigate("/dashboard/payments-history", { replace: true });
           }
         });

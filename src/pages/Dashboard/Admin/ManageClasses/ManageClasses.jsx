@@ -37,7 +37,7 @@ const ManageClasses = () => {
           .then((data) => {
             if (data.data.modifiedCount > 0) {
               refetch();
-              Swal.fire("Status has been changed.", "success");
+              Swal.fire("Approved!", "Class has been approved.", "success");
             }
           })
           .catch((error) => {
@@ -63,7 +63,7 @@ const ManageClasses = () => {
           .then((data) => {
             if (data.data.modifiedCount > 0) {
               refetch();
-              Swal.fire("Status has been changed.", "success");
+              Swal.fire("Denied!", "Class has been denied.", "success");
             }
           })
           .catch((error) => {
@@ -90,7 +90,7 @@ const ManageClasses = () => {
           .then((data) => {
             if (data.data.modifiedCount > 0) {
               refetch();
-              Swal.fire("Feedback has been submitted.", "success");
+              Swal.fire("Submitted", "Feedback has been submitted.", "success");
             }
           })
           .catch((error) => {
