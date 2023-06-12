@@ -1,4 +1,8 @@
+import useDarkMode from "../../hooks/useDarkMode";
+
 const ClassCard = ({ singleClass, handleSelect, role }) => {
+  const { darkMode } = useDarkMode();
+
   const { classImage, className, instructorName, availableSeats, price } =
     singleClass;
   return (
@@ -6,7 +10,11 @@ const ClassCard = ({ singleClass, handleSelect, role }) => {
       className={`${
         availableSeats < 1
           ? "bg-error border border-error"
-          : "bg-white border border-gray-200"
+          : `${
+              darkMode
+                ? "bg-black border border-gray-700"
+                : "bg-white border border-gray-200"
+            }`
       } rounded-md shadow`}
     >
       <img className="rounded-md h-60 w-full" src={classImage} alt="" />
@@ -31,7 +39,7 @@ const ClassCard = ({ singleClass, handleSelect, role }) => {
               : false
           }
           onClick={() => handleSelect(singleClass)}
-          className="btn btn-sm w-full text-white bg-blue-500 hover:bg-blue-600"
+          className="btn btn-sm w-full text-white border-none bg-blue-500 hover:bg-blue-600"
         >
           Select
         </button>

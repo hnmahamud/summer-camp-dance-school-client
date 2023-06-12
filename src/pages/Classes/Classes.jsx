@@ -10,11 +10,14 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
 import useScrollTop from "../../hooks/useScrollTop";
+import useDarkMode from "../../hooks/useDarkMode";
 
 const Classes = () => {
   // Custom hook
   const { pathname } = useLocation();
   useScrollTop(pathname);
+
+  const { darkMode } = useDarkMode();
 
   const { user } = useAuth();
   const [role] = useRole();
@@ -91,7 +94,7 @@ const Classes = () => {
       <Helmet>
         <title>DanceCampX - Classes</title>
       </Helmet>
-      <div className="my-16 space-y-8">
+      <div className={`${darkMode ? "text-gray-300" : ""} my-16 space-y-8`}>
         <div className="md:w-[80%] mx-auto md:text-center space-y-4">
           <Fade cascade damping={0.2}>
             <h2 className="text-center text-3xl font-bold">

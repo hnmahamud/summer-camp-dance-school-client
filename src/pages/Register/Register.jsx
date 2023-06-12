@@ -6,11 +6,14 @@ import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useScrollTop from "../../hooks/useScrollTop";
+import useDarkMode from "../../hooks/useDarkMode";
 
 const Register = () => {
   // Custom hook
   const { pathname } = useLocation();
   useScrollTop(pathname);
+
+  const { darkMode } = useDarkMode();
 
   // Context API
   const { createUser, profileUpdate, googleLogin, setLoading } = useAuth();
@@ -178,7 +181,13 @@ const Register = () => {
       </Helmet>
       <section className="min-h-[calc(100vh-65px)] py-16">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0 border">
+          <div
+            className={`${
+              darkMode
+                ? "bg-black text-gray-300 border border-gray-700"
+                : "bg-white"
+            } w-full  rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0 border`}
+          >
             {/* Error message */}
             {err ? (
               <div className="bg-white alert alert-error border-none">
@@ -204,7 +213,7 @@ const Register = () => {
             )}
             {/* Register form */}
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+              <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl">
                 Create and account
               </h1>
               <form
@@ -212,46 +221,58 @@ const Register = () => {
                 className="space-y-4 md:space-y-6"
               >
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900">
+                  <label className="block mb-2 text-sm font-medium">
                     Your Name
                   </label>
                   <input
                     {...register("name")}
                     type="text"
                     name="name"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className={`${
+                      darkMode
+                        ? "bg-gray-400 placeholder-gray-600"
+                        : "bg-gray-50"
+                    }  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`}
                     placeholder="John Doe"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900">
+                  <label className="block mb-2 text-sm font-medium">
                     Your email
                   </label>
                   <input
                     {...register("email")}
                     type="email"
                     name="email"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className={`${
+                      darkMode
+                        ? "bg-gray-400 placeholder-gray-600"
+                        : "bg-gray-50"
+                    }  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`}
                     placeholder="name@company.com"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900">
+                  <label className="block mb-2 text-sm font-medium">
                     Photo URL
                   </label>
                   <input
                     {...register("photoUrl")}
                     type="url"
                     name="photoUrl"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className={`${
+                      darkMode
+                        ? "bg-gray-400 placeholder-gray-600"
+                        : "bg-gray-50"
+                    }  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`}
                     placeholder="https://photo.com/"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900">
+                  <label className="block mb-2 text-sm font-medium">
                     Password
                   </label>
                   <div className="bg-gray-50 flex border border-gray-300 rounded-lg">
@@ -266,7 +287,11 @@ const Register = () => {
                       name="password"
                       type="password"
                       placeholder="••••••••"
-                      className="bg-gray-50 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                      className={`${
+                        darkMode
+                          ? "bg-gray-400 placeholder-gray-600"
+                          : "bg-gray-50"
+                      }  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`}
                       required
                     />
                   </div>
@@ -278,7 +303,7 @@ const Register = () => {
                 </div>
 
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900">
+                  <label className="block mb-2 text-sm font-medium">
                     Confirm Password
                   </label>
                   <div className="bg-gray-50 flex border border-gray-300 rounded-lg">
@@ -291,7 +316,11 @@ const Register = () => {
                       name="confirmPassword"
                       type="password"
                       placeholder="••••••••"
-                      className="bg-gray-50 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                      className={`${
+                        darkMode
+                          ? "bg-gray-400 placeholder-gray-500"
+                          : "bg-gray-50"
+                      }  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`}
                       required
                     />
                   </div>
@@ -322,7 +351,11 @@ const Register = () => {
                     <div className="w-full border-b border-gray-300"></div>
                   </div>
                   <div className="relative flex justify-center">
-                    <span className="bg-white px-4 text-sm text-gray-500">
+                    <span
+                      className={`${
+                        darkMode ? "bg-black" : "bg-white"
+                      }  px-4 text-sm text-gray-500`}
+                    >
                       Or
                     </span>
                   </div>
@@ -330,7 +363,11 @@ const Register = () => {
                 <button
                   onClick={googleHandler}
                   type="submit"
-                  className="flex justify-center items-center gap-4 w-full bg-gray-200 hover:bg-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  className={`${
+                    darkMode
+                      ? "bg-gray-400 hover:bg-gray-500"
+                      : "bg-gray-200 hover:bg-gray-300"
+                  } flex justify-center items-center gap-4 w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center`}
                 >
                   <img className="h-5 w-5" src={google} alt="" />
                   <span>Login with Google</span>
