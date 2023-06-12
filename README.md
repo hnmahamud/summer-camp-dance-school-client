@@ -1,6 +1,6 @@
 # DanceCampX
 
-![Logo](public/logo.png){:height="200px" width="300px"}
+![Logo](public/logo.png)
 
 ## Live Link
 
