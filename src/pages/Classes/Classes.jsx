@@ -3,14 +3,19 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ClassCard from "./ClassCard";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useRole from "../../hooks/useRole";
 import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const Classes = () => {
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
+
   const { user } = useAuth();
   const [role] = useRole();
 
@@ -90,10 +95,7 @@ const Classes = () => {
         <div className="md:w-[80%] mx-auto md:text-center space-y-4">
           <Fade cascade damping={0.2}>
             <h2 className="text-center text-3xl font-bold">
-              Explore Our{" "}
-              <u className="text-primary">
-                Dance Classes
-              </u>
+              Explore Our <u className="text-primary">Dance Classes</u>
             </h2>
             <p>
               Get ready to discover a world of dance at Summer Camp Dance

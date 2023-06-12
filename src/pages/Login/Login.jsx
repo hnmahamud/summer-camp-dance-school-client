@@ -6,8 +6,13 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const Login = () => {
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
+
   // Use Context API
   const { loginUser, googleLogin, setLoading } = useAuth();
 

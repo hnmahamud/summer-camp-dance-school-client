@@ -4,8 +4,14 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import InstructorCard from "./InstructorCard";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const Instructors = () => {
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
+
   const { data: instructors = [], isLoading } = useQuery({
     queryKey: ["users-instructors"],
     queryFn: async () => {
