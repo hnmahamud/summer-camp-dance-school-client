@@ -10,7 +10,7 @@ const ClassCard = ({ singleClass }) => {
     <div
       className={`${
         darkMode ? "bg-black border border-gray-700" : "bg-white"
-      } block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700`}
+      } block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`}
       data-te-ripple-init
       data-te-ripple-color="light"
     >
@@ -19,7 +19,7 @@ const ClassCard = ({ singleClass }) => {
         <svg
           className={`${
             darkMode ? "text-black" : "text-white"
-          } absolute left-0 bottom-0 dark:text-neutral-700`}
+          } absolute left-0 bottom-0`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
         >

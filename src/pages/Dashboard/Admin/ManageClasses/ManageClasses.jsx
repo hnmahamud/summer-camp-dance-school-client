@@ -101,8 +101,8 @@ const ManageClasses = () => {
   };
 
   return (
-    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table className="w-full text-sm text-left text-gray-500">
+      <thead className="text-xs text-gray-700 uppercase bg-gray-50">
         <tr>
           <th scope="col" className="px-6 py-3">
             Class name
@@ -134,7 +134,7 @@ const ManageClasses = () => {
               <tr key={cls._id} className="bg-white border-b">
                 <th
                   scope="row"
-                  className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                  className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap"
                 >
                   <img className="w-16 h-16 rounded-lg" src={cls?.classImage} />
                   <div className="pl-3">

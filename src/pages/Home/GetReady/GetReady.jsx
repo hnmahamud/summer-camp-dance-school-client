@@ -17,7 +17,7 @@ const GetReady = () => {
             <div className="mb-12 lg:mb-0">
               <h2 className="my-12 text-3xl font-bold leading-tight tracking-tight">
                 Are you ready <br />
-                <u className="text-primary dark:text-primary-400">to dance?</u>
+                <u className="text-primary">to dance?</u>
               </h2>
               <Link
                 className="mb-2 inline-block rounded bg-primary px-6 pt-2 pb-2 text-sm font-medium uppercase leading-normal text-white md:mr-2 md:mb-0"
@@ -40,7 +40,7 @@ const GetReady = () => {
             <div className="mb-12 lg:mb-0">
               <img
                 src={readyForDance}
-                className="w-full rounded-lg shadow-lg dark:shadow-black/20"
+                className="w-full rounded-lg shadow-lg"
                 alt=""
               />
             </div>

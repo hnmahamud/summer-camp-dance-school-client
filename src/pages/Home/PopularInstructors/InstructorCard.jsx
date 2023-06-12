@@ -8,7 +8,7 @@ const InstructorCard = ({ singleInstructor }) => {
     <div
       className={`${
         darkMode ? "bg-black border border-gray-700" : "bg-white"
-      } relative block rounded-lg p-6  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700`}
+      } relative block rounded-lg p-6  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`}
     >
       <div className="flex-row items-center lg:flex">
         <div className="w-full shrink-0 grow-0 basis-auto lg:w-5/12 lg:pr-6">
@@ -19,16 +19,14 @@ const InstructorCard = ({ singleInstructor }) => {
         </div>
         <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
           <h5 className="mb-2 text-lg font-bold">{name}</h5>
-          <p className="mb-4 text-neutral-500 dark:text-neutral-300">
-            Dance expert
-          </p>
+          <p className="mb-4 text-neutral-500">Dance expert</p>
           <ul className="mx-auto flex list-inside justify-center lg:justify-start">
             <Link className="px-2">
               {/* <!-- GitHub --> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                className="h-4 w-4 text-primary dark:text-primary-400"
+                className="h-4 w-4 text-primary"
               >
                 <path
                   fill="currentColor"
@@ -41,7 +39,7 @@ const InstructorCard = ({ singleInstructor }) => {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                className="h-4 w-4 text-primary dark:text-primary-400"
+                className="h-4 w-4 text-primary"
               >
                 <path
                   fill="currentColor"
@@ -54,7 +52,7 @@ const InstructorCard = ({ singleInstructor }) => {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                className="h-3.5 w-3.5 text-primary dark:text-primary-400"
+                className="h-3.5 w-3.5 text-primary"
               >
                 <path
                   fill="currentColor"

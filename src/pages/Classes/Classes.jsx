@@ -91,7 +91,7 @@ const Classes = () => {
           <Fade cascade damping={0.2}>
             <h2 className="text-center text-3xl font-bold">
               Explore Our{" "}
-              <u className="text-primary dark:text-primary-400">
+              <u className="text-primary">
                 Dance Classes
               </u>
             </h2>

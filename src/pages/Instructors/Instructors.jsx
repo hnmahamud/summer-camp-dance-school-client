@@ -29,10 +29,7 @@ const Instructors = () => {
         <div className="md:w-[80%] mx-auto md:text-center space-y-4">
           <Fade cascade damping={0.2}>
             <h2 className="text-center text-3xl font-bold">
-              Meet Our{" "}
-              <u className="text-primary dark:text-primary-400">
-                Dance Instructors
-              </u>
+              Meet Our <u className="text-primary">Dance Instructors</u>
             </h2>
             <p>
               Our talented and passionate dance instructors at Summer Camp Dance

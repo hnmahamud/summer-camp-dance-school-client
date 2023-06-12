@@ -8,13 +8,13 @@ const ContactUs = () => {
       <section className={`${darkMode ? "text-white" : ""} my-16 md:my-32`}>
         <div className="md:w-[80%] mx-auto md:text-center space-y-4 mb-8">
           <h2 className="text-center text-3xl font-bold">
-            Contact <u className="text-primary dark:text-primary-400">Us</u>
+            Contact <u className="text-primary">Us</u>
           </h2>
         </div>
         <div
           className={`${
             darkMode ? "bg-black border border-gray-700" : "bg-white"
-          } block rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700`}
+          } block rounded-lg  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`}
         >
           <div className="flex flex-wrap items-center">
             <div className="block w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
@@ -50,15 +50,9 @@ const ContactUs = () => {
                       </div>
                     </div>
                     <div className="ml-6 grow">
-                      <p className="mb-2 font-bold dark:text-white">
-                        Technical support
-                      </p>
-                      <p className="text-neutral-500 dark:text-neutral-200">
-                        support@example.com
-                      </p>
-                      <p className="text-neutral-500 dark:text-neutral-200">
-                        +1 234-567-89
-                      </p>
+                      <p className="mb-2 font-bold">Technical support</p>
+                      <p className="text-neutral-500">support@example.com</p>
+                      <p className="text-neutral-500">+1 234-567-89</p>
                     </div>
                   </div>
                 </div>
@@ -83,15 +77,9 @@ const ContactUs = () => {
                       </div>
                     </div>
                     <div className="ml-6 grow">
-                      <p className="mb-2 font-bold dark:text-white">
-                        Sales questions
-                      </p>
-                      <p className="text-neutral-500 dark:text-neutral-200">
-                        sales@example.com
-                      </p>
-                      <p className="text-neutral-500 dark:text-neutral-200">
-                        +1 234-567-89
-                      </p>
+                      <p className="mb-2 font-bold">Sales questions</p>
+                      <p className="text-neutral-500">sales@example.com</p>
+                      <p className="text-neutral-500">+1 234-567-89</p>
                     </div>
                   </div>
                 </div>
@@ -116,13 +104,9 @@ const ContactUs = () => {
                       </div>
                     </div>
                     <div className="ml-6 grow">
-                      <p className="mb-2 font-bold dark:text-white">Press</p>
-                      <p className="text-neutral-500 dark:text-neutral-200">
-                        press@example.com
-                      </p>
-                      <p className="text-neutral-500 dark:text-neutral-200">
-                        +1 234-567-89
-                      </p>
+                      <p className="mb-2 font-bold">Press</p>
+                      <p className="text-neutral-500">press@example.com</p>
+                      <p className="text-neutral-500">+1 234-567-89</p>
                     </div>
                   </div>
                 </div>
@@ -147,15 +131,9 @@ const ContactUs = () => {
                       </div>
                     </div>
                     <div className="ml-6 grow">
-                      <p className="mb-2 font-bold dark:text-white">
-                        Bug report
-                      </p>
-                      <p className="text-neutral-500 dark:text-neutral-200">
-                        bugs@example.com
-                      </p>
-                      <p className="text-neutral-500 dark:text-neutral-200">
-                        +1 234-567-89
-                      </p>
+                      <p className="mb-2 font-bold">Bug report</p>
+                      <p className="text-neutral-500">bugs@example.com</p>
+                      <p className="text-neutral-500">+1 234-567-89</p>
                     </div>
                   </div>
                 </div>

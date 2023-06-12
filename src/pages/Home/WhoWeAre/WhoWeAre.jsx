@@ -14,15 +14,12 @@ const WhoWeAre = () => {
             } max-w-[700px] text-center`}
           >
             <h2 className="mb-6 text-center text-3xl font-bold">
-              Who we are and why{" "}
-              <u className="text-primary dark:text-primary-400">
-                we are famous?
-              </u>
+              Who we are and why <u className="text-primary">we are famous?</u>
             </h2>
             <p
               className={`${
                 darkMode ? "text-gray-300" : ""
-              } mb-16 text-neutral-500 dark:text-neutral-300`}
+              } mb-16 text-neutral-500`}
             >
               DanceCampX is an exciting and dynamic dance school that brings
               together dancers of all ages and levels to explore the world of
@@ -59,7 +56,7 @@ const WhoWeAre = () => {
             <p
               className={`${
                 darkMode ? "text-gray-300" : ""
-              } mb-16 text-neutral-500 dark:text-neutral-300`}
+              } mb-16 text-neutral-500`}
             >
               We provide round-the-clock assistance to ensure that dancers
               receive the support they need whenever they need it.
@@ -87,7 +84,7 @@ const WhoWeAre = () => {
             <p
               className={`${
                 darkMode ? "text-gray-300" : ""
-              } mb-16 text-neutral-500 dark:text-neutral-300`}
+              } mb-16 text-neutral-500`}
             >
               Our dance school prioritizes the safety and well-being of our
               students, offering a secure and reliable environment.
@@ -102,7 +99,7 @@ const WhoWeAre = () => {
             <p
               className={`${
                 darkMode ? "text-gray-300" : ""
-              } mb-16 text-neutral-500 dark:text-neutral-300`}
+              } mb-16 text-neutral-500`}
             >
               Our classes are designed to deliver rapid progress, allowing
               dancers to see significant improvement in their skills and
@@ -136,7 +133,7 @@ const WhoWeAre = () => {
             <p
               className={`${
                 darkMode ? "text-gray-300" : ""
-              } mb-16 text-neutral-500 dark:text-neutral-300`}
+              } mb-16 text-neutral-500`}
             >
               Through live analytics, we provide real-time feedback and insights
               to help dancers track their progress, identify areas for

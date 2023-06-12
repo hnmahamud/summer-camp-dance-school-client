@@ -26,8 +26,7 @@ const PopularClasses = () => {
       <Fade cascade damping={0.2}>
         <div className="md:w-[80%] mx-auto md:text-center space-y-4 mb-8">
           <h2 className="text-center text-3xl font-bold">
-            Popular{" "}
-            <u className="text-primary dark:text-primary-400">Classes</u>
+            Popular <u className="text-primary">Classes</u>
           </h2>
           <p>
             Discover our most sought-after dance classes at Summer Camp Dance
