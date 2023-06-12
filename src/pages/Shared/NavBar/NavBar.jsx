@@ -112,7 +112,9 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 space-y-4 text-base z-10"
+            className={`${
+              darkMode ? "bg-black" : "bg-base-100"
+            } menu menu-sm dropdown-content mt-3 p-2 shadow rounded-box w-52 space-y-4 text-base z-10`}
           >
             {navItems}
           </ul>
@@ -150,7 +152,9 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 border rounded-md w-36 space-y-3 text-start text-base"
+              className={`${
+                darkMode ? "bg-black" : "bg-base-100"
+              } mt-3 p-2 shadow menu menu-compact dropdown-content rounded-md w-36 space-y-3 text-start text-base`}
             >
               <Link className="hover:text-blue-600">Profile</Link>
               <Link onClick={logoutHandler} className="hover:text-blue-600">
